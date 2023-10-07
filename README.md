@@ -43,11 +43,3 @@ Bem-vindo ao Catálogo de Vinhos, uma aplicação web simples e elegante para ex
 ## Contribuindo
 
 Sinta-se à vontade para contribuir para este projeto. Se você encontrar problemas ou tiver sugestões, por favor, abra uma [issue](link_para_issues) ou envie um [pull request](link_para_pull_requests).
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
----
-
-**Nota:** Este README é um exemplo. Personalize-o de acordo com seu projeto, adicionando informações específicas, instruções de instalação, capturas de tela e outras informações relevantes. Lembre-se de atualizá-lo à medida que o projeto evolui.

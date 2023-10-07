@@ -1,4 +1,4 @@
-**# Catálogo de Vinhos**
+** Catálogo de Vinhos**
 
 Bem-vindo ao Catálogo de Vinhos, uma aplicação web simples e elegante para explorar uma seleção cuidadosa de vinhos. Este catálogo oferece uma visão detalhada de cada vinho, permitindo que você descubra suas características únicas e faça escolhas informadas.
 

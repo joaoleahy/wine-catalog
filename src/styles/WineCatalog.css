@@ -1,0 +1,19 @@
+.selected-wine {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    pointer-events: none; /* Impede que o elemento seja clicável */
+  }
+  
+  .wine-thumbnail {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  /* Restante dos estilos permanece o mesmo */
+  

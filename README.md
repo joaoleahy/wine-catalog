@@ -2,9 +2,10 @@
 
 Bem-vindo ao Catálogo de Vinhos, uma aplicação web simples e elegante para explorar uma seleção cuidadosa de vinhos. Este catálogo oferece uma visão detalhada de cada vinho, permitindo que você descubra suas características únicas e faça escolhas informadas.
 
-![vinho1](https://github.com/joaoleahy/wine-catalog/assets/86070920/0a9fccdc-4429-4f56-9530-5d71afcb5416)
+![vinho1](https://github.com/joaoleahy/wine-catalog/assets/86070920/ad1fe7bc-2405-49ba-8a67-d634bbd73d12)
 
-![vinho2](https://github.com/joaoleahy/wine-catalog/assets/86070920/109450ce-95d0-47ed-aa03-dcca787ed245)
+
+![vinho2](https://github.com/joaoleahy/wine-catalog/assets/86070920/abd7f215-7228-4642-85df-392f260d8e2f)
 
 
 ## Funcionalidades

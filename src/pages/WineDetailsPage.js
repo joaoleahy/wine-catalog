@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import WineDescription from '../components/common/WineDescription';
-import winesData from '../data/winesData';
+import WineDescription from '../components/WineDescription';
+import winesData from '../data/WinesData';
 import '../styles/WineDetailsPage.css';
 
 const WineDetailsPage = () => {
@@ -13,7 +13,6 @@ const WineDetailsPage = () => {
       {selectedWine ? (
         <div>
           <WineDescription selectedWine={selectedWine} />
-          {/* Adicione aqui outros detalhes específicos do vinho, se necessário */}
         </div>
       ) : (
         <p>Vinho não encontrado.</p>

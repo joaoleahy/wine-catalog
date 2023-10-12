@@ -4,7 +4,7 @@ import '../styles/AboutPage.css';
 const AboutPage = () => {
   return (
     <div className="about">
-      <h2>Bem-vindo à Vinum Aeternum</h2>
+      <h2>Bem-vindo ao Catálogo de Vinhos!</h2>
       <div className="about-content">
         <p>Somos mais do que uma loja de vinhos, somos apaixonados pela arte da vinicultura, pela riqueza de sabores e pelo encanto que cada garrafa carrega consigo. Fundada por enófilos ávidos e conhecedores, nossa loja nasceu do amor profundo pela tradição, pela qualidade e pela história que cada vinho conta.</p>
         <p><strong>Nossa Missão:</strong> Proporcionar a você uma experiência inigualável no universo dos vinhos. Nosso objetivo é conectar apreciadores e novatos com vinhos excepcionais de todas as partes do mundo, transformando cada gole em uma jornada fascinante.</p>

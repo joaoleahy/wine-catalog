@@ -1,21 +1,21 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import WineCatalog from './components/WineCatalog';
+import { Routes, Route } from 'react-router-dom';
+import WineCatalog from '../components/WineCatalog';
 import WineDetailsPage from '../pages/WineDetailsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import LoginPage from '../pages/LoginPage';
 import AboutPage from '../pages/AboutPage';
 
-const Routes = () => {
+const RoutesComponent = () => {
   return (
-    <Switch>
-      <Route path="/" exact component={WineCatalog} />
-      <Route path="/wine/:id" component={WineDetailsPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/about" component={AboutPage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<WineCatalog />} />
+      <Route path="/wine/:id" element={<WineDetailsPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 };
 
-export default Routes;
+export default RoutesComponent;

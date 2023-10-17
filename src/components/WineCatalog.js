@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import WineItem from './WineItem';
-import WineDescription from './WineDescription'; // Certifique-se de importar WineDescription corretamente
+import WineDescription from './WineDescription';
 import winesData from '../data/WinesData';
 import '../styles/WineCatalog.css';
 

@@ -1,20 +1,42 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import WineCatalog from '../components/WineCatalog';
 import WineDetailsPage from '../pages/WineDetailsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import LoginPage from '../pages/LoginPage';
 import AboutPage from '../pages/AboutPage';
-import CartPage from '../pages/CartPage';
+import GrapesPage from '../pages/GrapesPage';
 
 const RoutesComponent = () => {
   return (
     <Routes>
-      <Route path="/" element={<WineCatalog />} />
-      <Route path="/wine/:id" element={<WineDetailsPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <WineCatalog />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/wine/:id"
+        element={
+          <PrivateRoute>
+            <WineDetailsPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/grapes"
+        element={
+          <PrivateRoute>
+            <GrapesPage />
+          </PrivateRoute>
+        }
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

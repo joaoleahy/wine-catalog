@@ -1,0 +1,43 @@
+/* GrapeAndFlavorPage.css */
+
+.grape-and-flavor-page {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .grape-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .grape-item {
+    background-color: #63255e;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 300px;
+  }
+  
+  .grape-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .grape-item p {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .grape-item {
+      width: calc(100% - 20px);
+    }
+  }
+  

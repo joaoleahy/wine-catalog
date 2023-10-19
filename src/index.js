@@ -1,6 +1,11 @@
+// Seu arquivo de entrada principal (ex: index.js)
 import React from 'react';
-import { createRoot } from 'react-dom';
+import ReactDOM from 'react-dom';
 import App from './App';
 
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+ReactDOM.render(
+  <React.StrictMode>
+      <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

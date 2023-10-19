@@ -11,7 +11,6 @@ const WineItem = ({ wine, onSelect, children }) => {
       <img src={wine.image} alt={wine.name} className="wine-thumbnail" />
       <p>Tipo: {wine.type}</p>
       <p>Preço: R${wine.price}</p>
-      <button>{children}</button>
     </div>
   );
 };

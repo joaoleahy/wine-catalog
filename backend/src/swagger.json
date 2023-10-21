@@ -1,0 +1,82 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "API de Vinhos",
+      "version": "1.0.0",
+      "description": "Documentação da API de Vinhos usando Swagger"
+    },
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/users": {
+        "get": {
+          "summary": "Retorna todos os usuários",
+          "description": "Retorna uma lista de todos os usuários cadastrados.",
+          "responses": {
+            "200": {
+              "description": "Lista de usuários",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/wines": {
+        "get": {
+          "summary": "Retorna todos os vinhos",
+          "description": "Retorna uma lista de todos os vinhos cadastrados.",
+          "responses": {
+            "200": {
+              "description": "Lista de vinhos",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Wine"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Wine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+  

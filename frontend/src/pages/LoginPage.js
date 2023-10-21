@@ -5,6 +5,9 @@ import '../styles/LoginPage.css';
 
 const LoginPage = () => {
   const { login } = useAuth();
+  const { user, isAuthenticated } = useAuth();
+  console.log('user:', user);
+  console.log('isAuthenticated:', isAuthenticated);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 

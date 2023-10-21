@@ -6,8 +6,8 @@ import RoutesComponent from './routes/Routes';
 const App = () => {
   return (
     <Router>
-      <AuthProvider>
-          <RoutesComponent />
+      <AuthProvider> {/* Envolver o RoutesComponent com AuthProvider */}
+        <RoutesComponent />
       </AuthProvider>
     </Router>
   );

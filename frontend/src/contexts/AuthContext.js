@@ -5,11 +5,36 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const checkAuthentication = async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const response = await axios.get('http://localhost:3001/users/profile', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUser(response.data.user);
+        setIsAuthenticated(true);
+      } catch (error) {
+        localStorage.removeItem('token');
+        setUser(null);
+        setIsAuthenticated(false);
+      }
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    checkAuthentication();
+  }, []);
 
   const login = async (username, password) => {
     try {
       const response = await axios.post('http://localhost:3001/users/login', { username, password });
       setUser(response.data.user);
+      setIsAuthenticated(true);
       localStorage.setItem('token', response.data.token);
     } catch (error) {
       throw new Error('Falha ao fazer login: ' + error.message);
@@ -20,6 +45,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post('http://localhost:3001/users/register', { username, email, password });
       setUser(response.data.user);
+      setIsAuthenticated(true);
       localStorage.setItem('token', response.data.token);
     } catch (error) {
       throw new Error('Falha ao registrar: ' + error.message);
@@ -29,26 +55,11 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
+    setIsAuthenticated(false);
   };
 
-  useEffect(() => {
-    // Verifica se o usuário está autenticado (simulando uma chamada à API)
-    const token = localStorage.getItem('token');
-    if (token) {
-      // Simula uma chamada à API para obter os dados do usuário
-      axios.get('http://localhost:3001/users/profile', { headers: { Authorization: `Bearer ${token}` } })
-        .then(response => {
-          setUser(response.data.user);
-        })
-        .catch(error => {
-          localStorage.removeItem('token');
-          setUser(null);
-        });
-    }
-  }, []);
-
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, isAuthenticated, loading }}>
       {children}
     </AuthContext.Provider>
   );

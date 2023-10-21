@@ -11,7 +11,7 @@ import GrapesPage from '../pages/GrapesPage';
 
 const PrivateRoute = ({ element }) => {
   const { isAuthenticated } = useAuth();
-
+  console.log(isAuthenticated); // Adicione este console.log para verificar o valor de isAuthenticated
   return isAuthenticated ? element : <Navigate to="/login" />;
 };
 

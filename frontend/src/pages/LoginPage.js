@@ -6,6 +6,7 @@ import '../styles/LoginPage.css';
 const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const [formData, setFormData] = useState({
     username: '',
@@ -22,13 +23,18 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(formData.username, formData.password);
-    navigate('/');
+    try {
+      await login(formData.username, formData.password);
+      navigate('/');
+    } catch (error) {
+      setErrorMessage('Credenciais inválidas. Por favor, tente novamente.');
+    }
   };
 
   return (
     <div className="login-form">
       <h2>Login</h2>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Nome de Usuário ou E-mail:</label>

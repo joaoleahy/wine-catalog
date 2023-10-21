@@ -54,3 +54,9 @@
   color: #4caf50;
   text-decoration: underline;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+

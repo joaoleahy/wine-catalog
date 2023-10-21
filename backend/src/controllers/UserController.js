@@ -1,10 +1,12 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 const userController = {
   register: async (req, res) => {
     try {
       const { username, password } = req.body;
-      const newUser = new User({ username, password });
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const newUser = new User({ username, password: hashedPassword });
       await newUser.save();
       res.status(201).json({ message: 'Usuário registrado com sucesso.' });
     } catch (error) {
@@ -19,7 +21,7 @@ const userController = {
       if (!user) {
         return res.status(401).json({ message: 'Usuário não encontrado.' });
       }
-      const isPasswordValid = await user.comparePassword(password);
+      const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
         return res.status(401).json({ message: 'Senha inválida.' });
       }
@@ -29,7 +31,6 @@ const userController = {
       res.status(500).json({ error: error.message });
     }
   },
-
 };
 
 module.exports = userController;

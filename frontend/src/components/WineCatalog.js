@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import WineItem from './WineItem';
-import winesData from '../data/WinesData';
 import '../styles/WineCatalog.css';
 
 const WineCatalog = () => {
+  const [wines, setWines] = useState([]);
   const [selectedWine, setSelectedWine] = useState(null);
+
+  useEffect(() => {
+    async function fetchWines() {
+      try {
+        const response = await fetch('/wines');
+        const data = await response.json();
+        setWines(data);
+      } catch (error) {
+        console.error('Erro ao buscar vinhos:', error);
+      }
+    }
+
+    fetchWines();
+  }, []);
 
   const handleSelectWine = (wine) => {
     setSelectedWine(wine);
@@ -15,11 +29,11 @@ const WineCatalog = () => {
     <div className="wine-catalog">
       <h1>Catálogo de Vinhos</h1>
       <div className="wine-list">
-        {winesData.map((wine) => (
-          <div key={wine.id} className="wine-item-container">
+        {wines.map((wine) => (
+          <div key={wine._id} className="wine-item-container">
             <WineItem wine={wine} onSelect={() => handleSelectWine(wine)} />
             <div className="buttons-container">
-              <Link to={`/wine/${wine.id}`}>
+              <Link to={`/wine/${wine._id}`}>
                 <button>Ver Detalhes</button>
               </Link>
             </div>

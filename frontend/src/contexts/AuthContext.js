@@ -1,23 +1,28 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    // Verificar se o usuário está autenticado (simulando uma chamada à API)
-    const isAuthenticated = localStorage.getItem('token');
-    if (isAuthenticated) {
-      setUser({ username: 'user123' });
+  const login = async (username, password) => {
+    try {
+      const response = await axios.post('http://localhost:3001/users/login', { username, password });
+      setUser(response.data.user);
+      localStorage.setItem('token', response.data.token);
+    } catch (error) {
+      throw new Error('Falha ao fazer login: ' + error.message);
     }
-  }, []);
+  };
 
-  const login = (username, password) => {
-    // Simular uma chamada à API para autenticação
-    if (username === 'user' && password === 'password') {
-      localStorage.setItem('token', 'fakeToken'); // Armazenar token no localStorage (não seguro em produção)
-      setUser({ username });
+  const register = async (username, email, password) => {
+    try {
+      const response = await axios.post('http://localhost:3001/users/register', { username, email, password });
+      setUser(response.data.user);
+      localStorage.setItem('token', response.data.token);
+    } catch (error) {
+      throw new Error('Falha ao registrar: ' + error.message);
     }
   };
 
@@ -26,8 +31,24 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  useEffect(() => {
+    // Verifica se o usuário está autenticado (simulando uma chamada à API)
+    const token = localStorage.getItem('token');
+    if (token) {
+      // Simula uma chamada à API para obter os dados do usuário
+      axios.get('http://localhost:3001/users/profile', { headers: { Authorization: `Bearer ${token}` } })
+        .then(response => {
+          setUser(response.data.user);
+        })
+        .catch(error => {
+          localStorage.removeItem('token');
+          setUser(null);
+        });
+    }
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

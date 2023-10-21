@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/LoginPage.css';
 
 const LoginPage = () => {
@@ -52,6 +52,9 @@ const LoginPage = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+      <p>
+        Não possui uma conta? <Link to="/register">Registre-se aqui</Link>.
+      </p>
     </div>
   );
 };

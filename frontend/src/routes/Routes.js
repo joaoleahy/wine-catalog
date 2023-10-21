@@ -22,7 +22,7 @@ const RoutesComponent = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route
-        path="/"
+        path="/wines"
         element={
           <PrivateRoute element={<WineCatalog />} />
         }

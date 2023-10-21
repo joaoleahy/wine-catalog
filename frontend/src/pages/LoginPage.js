@@ -28,7 +28,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await login(formData.username, formData.password);
-      navigate('/');
+      navigate('/wines');
     } catch (error) {
       setErrorMessage('Credenciais inválidas. Por favor, tente novamente.');
     }

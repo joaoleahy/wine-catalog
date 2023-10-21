@@ -1,14 +1,14 @@
 const Wine = require('../models/Wine');
 
 const wineController = {
-  getAllWines: async (req, res) => {
-    try {
-      const wines = await Wine.find();
-      res.status(200).json(wines);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  },
+  getAllWines: (req, res) => {
+      const wines = [
+        { id: 1, name: 'Vinho Tinto', type: 'Tinto', price: 35 },
+        { id: 2, name: 'Vinho Branco', type: 'Branco', price: 60 },
+        { id: 3, name: 'Vinho Rosé', type: 'Rosé', price: 45 }
+      ];
+      res.json(wines);
+    },
 
   addWine: async (req, res) => {
     try {
